@@ -9,7 +9,6 @@ export default function Status(props) {
     const setType = (xtype) => {
         setSetting({ type: xtype == type ? null : xtype })
     }
-    console.log(type)
     return (
         <div className="status-dir" >
             <div className="bg btn-actions" style={{ flex: .45 }}>

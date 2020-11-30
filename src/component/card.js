@@ -14,11 +14,10 @@ function reducer(state, xcard) {
 export default function Card(props) {
     const { app: { game }, setSetting } = useContext(storeContext);
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [completed, setCompleted] = useState(0);
     const [started, setStarted] = useState(false);
 
     const _card = (c) => {
-        dispatch(c.join(''));
+        dispatch(c);
     };
 
     useEffect(() => {

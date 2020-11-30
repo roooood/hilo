@@ -6,7 +6,7 @@ export default {
     "bet-type": "Bet Type",
     "amount": "Amount",
     "win": "Win",
-    "live": 'Live',
+    "live": 'Bet Slip',
     "my-bet": 'My Bet',
     "chat": 'Chat',
     "player": 'Player',

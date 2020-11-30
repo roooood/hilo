@@ -6,7 +6,7 @@ import storeContext from 'reducer/context';
 export default function Live(props) {
     const { setting: { players } } = useContext(storeContext);
     players?.map(p => {
-        if (p.status != '-') {
+        if (p.status != null) {
             p.style = { status: { color: (p.status == p.bet ? '#4e9f4e' : '#f25151') } }
         }
         return p;
