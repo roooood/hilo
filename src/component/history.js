@@ -9,9 +9,8 @@ export default function History(props) {
 
     const _history = (data) => {
         data?.map(p => {
-            p.style = { status: { color: (p.profit == 0 ? '#f25151' : '#4e9f4e') } }
-            p.status = p.rofit ?? p.amount;
-
+            p.style = { profit: { color: (p.state == 0 ? '#f25151' : '#4e9f4e') } }
+            p.status = p.profit ?? p.amount;
             return p;
         })
         setData(data)
@@ -25,7 +24,7 @@ export default function History(props) {
             header={{
                 type: t('bet-type'),
                 amount: t('amount'),
-                status: t('win'),
+                profit: t('win'),
             }}
             body={data}
         />

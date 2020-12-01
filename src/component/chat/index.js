@@ -16,9 +16,9 @@ export default function History(props) {
         <div className="msger">
             <div className="msger-chat">
                 {message?.map((msg, i) => (
-                    <div className={"msg " + (msg.ref == id ? 'right' : 'left') + "-msg"} key={i}>
+                    <div className={"msg " + (msg.user_id == id ? 'right' : 'left') + "-msg"} key={i}>
                         <div className="msg-bubble">
-                            {msg.ref != id &&
+                            {msg.user_id != id &&
                                 <div className="msg-info">
                                     <div className="msg-info-name">{msg.username}</div>
                                     <div className="msg-info-time"></div>

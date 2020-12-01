@@ -5,7 +5,7 @@ body {
 }
 
 * {
-    font-family:'Lateef', cursive, IRANSemi !important;
+    font-family: IRANSemi !important;
 }
 
 .flex {
@@ -46,7 +46,7 @@ body {
 }
 
 .bg {
-    background:#131530;
+    background: #131530;
     border-radius: 10px;
     padding: 10px;
     overflow: hidden;
@@ -267,14 +267,17 @@ body {
     border: 1px solid #21233b;
     box-shadow: 1px 2px 2px 0px #0000003d;
 }
+
 .btn:hover {
     border: 1px solid #21233b;
     box-shadow: 1px 2px 2px 0px #0000003d;
 }
-.btn.row{
+
+.btn.row {
     flex-direction: row;
     justify-content: center;
 }
+
 .btn span {
     font-size: 11px;
     font-weight: normal;
@@ -285,14 +288,17 @@ body {
     background: linear-gradient(to bottom, #afbd18 5%, #919d12 100%);
     background-color: #919d12;
 }
+
 .btn.orange {
-    background:linear-gradient(to bottom, #f2a036 5%, #fbc279 100%);
+    background: linear-gradient(to bottom, #f2a036 5%, #fbc279 100%);
     background-color: #e38813;
 }
+
 .btn.row span {
-    margin-left:10px;
-    margin-right:10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 .btn.orange span {
     color: rgb(17, 17, 17);
 }
@@ -311,9 +317,11 @@ body {
     background: linear-gradient(to bottom, #0f0f18 5%, #030305 100%);
     background-color: #030305;
 }
-.disable{
-    opacity:.3;
+
+.disable {
+    opacity: .3;
 }
+
 .card-dir {
     display: flex;
     flex: 1;
@@ -330,10 +338,12 @@ body {
     height: 5em;
     overflow: hidden
 }
-.card-timer{
+
+.card-timer {
     height: 10px;
     width: 70%;
 }
+
 .user-dir {
     display: flex;
     flex-direction: column;
@@ -430,62 +440,66 @@ body {
 
 
 @-webkit-keyframes pulse-grow-on-hover {
-  to {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-  }
+    to {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
 }
+
 @keyframes pulse-grow-on-hover {
-  to {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-  }
+    to {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
 }
-.pulse{
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
+
+.pulse {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
 }
+
 .pulse:not(.no-hover):hover {
-  -webkit-animation-name: pulse-grow-on-hover;
-  animation-name: pulse-grow-on-hover;
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
+    -webkit-animation-name: pulse-grow-on-hover;
+    animation-name: pulse-grow-on-hover;
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
 }
 
 .progress {
-  padding: 6px;
-  border-radius: 30px;
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    padding: 6px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .progress-bar {
-  height: 18px;
-  border-radius: 30px;
-  background: rgba(165, 165, 165, 0.1);
-  transition: 0.4s ease;
-  transition-property: width, background-color;
+    height: 18px;
+    border-radius: 30px;
+    background: rgba(165, 165, 165, 0.1);
+    transition: 0.4s ease;
+    transition-property: width, background-color;
 }
 
 .progress-moved .progress-bar {
-  width: 100%;
-  background-color: rgb(255, 59 ,0);
-  animation: progressAnimation 10s;
+    width: 100%;
+    background-color: rgb(255, 59, 0);
+    animation: progressAnimation 10s;
 }
 
 @keyframes progressAnimation {
-  0% {
-    width: 5%;
-    background-color: rgb(250, 134, 99);
-  }
-  100% {
-    width: 100%;
-    background-color: rgb(255, 59 ,0);
-  }
+    0% {
+        width: 5%;
+        background-color: rgb(250, 134, 99);
+    }
+
+    100% {
+        width: 100%;
+        background-color: rgb(255, 59, 0);
+    }
 }

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lateef&display=swap');
 @import 'reset.css';
 @import 'cards.css';
 @import 'custom.css';
@@ -24,26 +23,28 @@ body {
   user-select: none;
   -webkit-overflow-scrolling: touch;
 }
+
 ::-webkit-scrollbar {
-    height: 6px;
-    width: 6px;
-    background: rgba(192, 192, 192, 0.226);
+  height: 6px;
+  width: 6px;
+  background: rgba(192, 192, 192, 0.226);
 }
 
 ::-webkit-scrollbar-thumb {
-    background:  rgba(202, 202, 202, 0.616);
-    -webkit-border-radius: 1ex;
+  background: rgba(202, 202, 202, 0.616);
+  -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
-    background: #000;
+  background: #000;
 }
 
-*{
+* {
   scrollbar-color: rgba(202, 202, 202, 0.616) rgba(192, 192, 192, 0.226);
-  scrollbar-width:thin;
-   -ms-overflow-style: none;
+  scrollbar-width: thin;
+  -ms-overflow-style: none;
 }
+
 #root,
 .page {
   width: 100vw;
@@ -170,27 +171,29 @@ body {
   display: flex;
   position: relative;
   background-color: rgba(99, 99, 99, 0.267);
-  border:1px solid #f09e24;
+  border: 1px solid #f09e24;
   border-radius: 10px;
   margin-bottom: 10px;
-  padding:5px;
+  padding: 5px;
 }
+
 .tabs * {
   z-index: 2;
 }
+
 .tab {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
   flex: 1;
   border-radius: 10px;
   cursor: pointer;
   -webkit-transition: color 0.15s ease-in;
   transition: color 0.15s ease-in;
-  padding:6px;
+  padding: 6px;
 }
 
 .tab.active {
@@ -199,25 +202,25 @@ body {
 
 .glider.active-1 {
   -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 
 .glider.active-2 {
   -webkit-transform: translateX(100%);
-          transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .glider.active-3 {
   -webkit-transform: translateX(200%);
-          transform: translateX(200%);
+  transform: translateX(200%);
 }
 
 .glider {
   position: absolute;
   display: -webkit-box;
   display: flex;
-  flex:1;
-  background-color:#f09e24;
+  flex: 1;
+  background-color: #f09e24;
   z-index: 1;
   border-radius: 10px;
   -webkit-transition: 0.25s ease-out;
