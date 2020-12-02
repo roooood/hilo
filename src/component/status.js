@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { t } from 'locales';
 import Button from 'component/button';
 import storeContext from 'reducer/context';
 
 export default function Status(props) {
-    const { setting: { ratio, type }, setSetting } = useContext(storeContext);
+    const { setting: { ratio, type, started, beted }, setSetting } = useContext(storeContext);
+    useEffect(() => {
+        if (!started) {
+            setSetting({ type: false })
+        }
+    }, [started]);
 
     const setType = (xtype) => {
-        setSetting({ type: xtype == type ? null : xtype })
+        if (started && !beted)
+            setSetting({ type: xtype == type ? null : xtype })
     }
     return (
         <div className="status-dir" >
@@ -44,7 +50,7 @@ export default function Status(props) {
             <div className="ml flex col" style={{ flex: .55 }}>
                 <div className="mb bg center col" style={{ flex: .4 }}>
                     50%
-                    <Button disable={type ? type != 'hi' : false} type="up" onClick={() => setType('hi')}>Hi</Button>
+                    <Button disable={(type || ratio?.['hi'] == 0) ? type != 'hi' : false} type="up" onClick={() => ratio?.['hi'] == 0 ? null : setType('hi')}>Hi</Button>
                     {ratio?.['hi']}x
                 </div>
                 <div className="mb bg center" style={{ flex: .2 }}>
@@ -54,7 +60,7 @@ export default function Status(props) {
                 </div>
                 <div className="bg center col" style={{ flex: .4 }}>
                     50%
-                    <Button disable={type ? type != 'lo' : false} type="down" onClick={() => setType('lo')} >Lo</Button>
+                    <Button disable={(type || ratio?.['lo'] == 0) ? type != 'lo' : false} type="down" onClick={() => ratio?.['lo'] == 0 ? null : setType('lo')} >Lo</Button>
                     {ratio?.['lo']}x
                 </div>
             </div>

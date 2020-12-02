@@ -24,6 +24,7 @@ export default function Routing() {
             game.create({ token }).then(() => {
                 game.onState(getState);
                 game.add('setting', getState);
+                setLoading(false);
             }).catch(e => {
                 setError('auth-error')
             });
@@ -36,7 +37,6 @@ export default function Routing() {
         userInfo()
             .then(data => {
                 connect(data.token);
-                setLoading(false);
                 setSetting(data);
             })
             .catch(e => {

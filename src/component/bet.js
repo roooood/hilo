@@ -10,26 +10,25 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from 'component/button';
 
 export default function Bet(props) {
-    const { app: { game }, setSetting, setting: { minBet, changeBet, maxBet, balance, type, beted } } = useContext(storeContext);
+    const { app: { game }, setSetting, setting: { minBet, changeBet, maxBet, balance, type, beted, started } } = useContext(storeContext);
     const [bet, setBet] = useState(0);
 
     useEffect(() => {
         game.add('beted', _beted);
-        game.add('ended', reset);
         if (minBet)
             setBet(minBet)
     }, [minBet]);
 
-    const reset = () => {
-        setSetting({ type: false, beted: false })
-    }
+    useEffect(() => {
+        if (!started)
+            setSetting({ beted: false })
+    }, [started]);
+
     const _beted = (xtype) => {
         setSetting({ beted: xtype })
-        if (!xtype)
-            reset()
     }
     const setBeting = () => {
-        if (type && bet)
+        if (type && bet && started)
             game.send('bet', { bet, type })
     }
     const inc = () => {
@@ -97,7 +96,6 @@ export default function Bet(props) {
                 </a>
             </div>
             <Button
-                disable={bet == null || !type}
                 type='btn'
                 color={(beted ? 'blue row no-hover' : type ? 'red row no-hover' : 'green no-hover')}
                 onClick={setBeting} >

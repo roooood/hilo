@@ -13,6 +13,8 @@ export default {
 
     "error": "Error",
     "net-error": "Connection Error",
-    "info-error": "User Not Found",
+    "info-error": "Wrong User Information",
     "auth-error": "user Is Not Valid",
+    "user-error": "User Not Found",
+    "customer-error": "Refrence Not Found",
 }

@@ -20,14 +20,14 @@ export function userInfo() {
         else {
             post('auth', { ref, token })
                 .then(data => {
-                    if (typeof data == 'string') {
-                        reject(data == '' ? 'info-error' : data)
+                    if (data?.status) {
+                        resolve(data.data)
+                    }
+                    if (data?.error) {
+                        reject(data.error)
                     }
                     else {
-                        if (lang) {
-                            data.lang = lang;
-                        }
-                        resolve(data)
+                        reject('info-error')
                     }
                 })
         }

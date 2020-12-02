@@ -1,9 +1,6 @@
 import React, { useEffect, useContext, useReducer, useState } from 'react';
 import { t } from 'locales';
 import storeContext from 'reducer/context';
-import LinearProgress from '@material-ui/core/LinearProgress';
-
-const arr = ['K', 'Q', 'J', 10, 9, 8, 7, 6, 5, 4, 3, 2, 'A'];
 
 const initialState = { flip: true, card: ['back2', 'back2'] };
 function reducer(state, xcard) {
@@ -12,33 +9,19 @@ function reducer(state, xcard) {
 }
 
 export default function Card(props) {
-    const { app: { game }, setSetting } = useContext(storeContext);
+    const { setting: { started, card, games } } = useContext(storeContext);
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [started, setStarted] = useState(false);
-
-    const _card = (c) => {
-        dispatch(c);
-    };
 
     useEffect(() => {
-        game.add('card', _card);
-        game.add('started', _started);
-        game.add('ended', _ended);
-    }, []);
-
-    const _started = (time) => {
-        setStarted(true)
-        setSetting({ type: null, beted: false })
-    }
-    const _ended = () => {
-        setStarted(false)
-    }
+        if (card)
+            dispatch(card);
+    }, [card]);
 
     return (
         <div className="card-dir" >
             <div className="pri">
-                {arr.map(i =>
-                    <div key={i} className={"card mini _" + i + "c"} />
+                {games?.map(game =>
+                    <div key={game.id} className={"card mini _" + game.card} />
                 )}
             </div>
             <div className="card-status">
