@@ -96,18 +96,18 @@ body {
 
 .diff-arrow {
     position: relative;
-    background-color: #293689;
+    background-color: #6d2dff;
     width: 8em;
     height: 8em;
     border-top-right-radius: 20%;
     margin-top: -5px;
-    box-shadow: 7px -5px 5px #3e71ea;
+    box-shadow: 7px -5px 1px #7f47fd;
 }
 
 .diff-arrow.x {
     margin-top: 5px;
-    background-color: #772f57;
-    box-shadow: 7px -5px 5px #fb4363;
+    background: #f96800;
+    box-shadow: 7px -5px 1px #fca700;
 }
 
 .diff-arrow:before,
@@ -130,20 +130,20 @@ body {
 
 .diff-arrow:before {
     transform: rotate(-135deg) skewX(-45deg) scale(1.414, .707) translate(0, -50%);
-    box-shadow: 9px -7px 5px #3e71ea;
+    box-shadow: 9px -7px 1px #8c5ff7;
 }
 
 .diff-arrow:after {
     transform: rotate(135deg) skewY(-45deg) scale(.707, 1.414) translate(50%);
-    box-shadow: 8px -6px 5px #3e71ea;
+    box-shadow: 8px -6px 1px #7f47fd;
 }
 
 .diff-arrow.x:before {
-    box-shadow: 9px -7px 5px #fb4363;
+    box-shadow: 9px -7px 1px #fca700;
 }
 
 .diff-arrow.x:after {
-    box-shadow: 8px -6px 5px #fb4363;
+    box-shadow: 8px -6px 1px #fca700;
 }
 
 .burger {
@@ -340,10 +340,25 @@ body {
 }
 
 .card-timer {
-    height: 10px;
     width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-
+.card-timer .timer{
+    height:20px;
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.25);
+    width: 32px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+    padding: 5px;
+    text-shadow: 1px 1px 3px #333;
+}
+.card-timer .timer:empty{
+    display: none;
+}
 .user-dir {
     display: flex;
     flex-direction: column;
@@ -476,6 +491,7 @@ body {
     border-radius: 30px;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    width:100%;
 }
 
 .progress-bar {
@@ -489,12 +505,12 @@ body {
 .progress-moved .progress-bar {
     width: 100%;
     background-color: rgb(255, 59, 0);
-    animation: progressAnimation 10s;
+    animation: progressAnimation 11s;
 }
 
 @keyframes progressAnimation {
     0% {
-        width: 5%;
+        width: 0%;
         background-color: rgb(250, 134, 99);
     }
 

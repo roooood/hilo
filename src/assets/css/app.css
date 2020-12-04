@@ -193,7 +193,7 @@ body {
   cursor: pointer;
   -webkit-transition: color 0.15s ease-in;
   transition: color 0.15s ease-in;
-  padding: 6px;
+  padding: 4px;
 }
 
 .tab.active {
@@ -226,5 +226,5 @@ body {
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
   width: 32%;
-  height: 76%;
+  height: 70%;
 }

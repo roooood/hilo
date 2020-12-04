@@ -20,11 +20,8 @@ export function userInfo() {
         else {
             post('auth', { ref, token })
                 .then(data => {
-                    if (data?.status) {
+                    if (data?.result == 'ok') {
                         resolve(data.data)
-                    }
-                    if (data?.error) {
-                        reject(data.error)
                     }
                     else {
                         reject('info-error')

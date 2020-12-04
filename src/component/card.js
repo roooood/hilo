@@ -1,6 +1,8 @@
-import React, { useEffect, useContext, useReducer, useState } from 'react';
+import React, { useEffect, useContext, useReducer, useRef } from 'react';
 import { t } from 'locales';
 import storeContext from 'reducer/context';
+import play from 'library/sound';
+import Countdown from 'component/countdown';
 
 const initialState = { flip: true, card: ['back2', 'back2'] };
 function reducer(state, xcard) {
@@ -11,11 +13,22 @@ function reducer(state, xcard) {
 export default function Card(props) {
     const { setting: { started, card, games } } = useContext(storeContext);
     const [state, dispatch] = useReducer(reducer, initialState);
+    const counter = useRef(null);
 
     useEffect(() => {
-        if (card)
+        if (card) {
             dispatch(card);
+            play('flip')
+        }
     }, [card]);
+    useEffect(() => {
+        if (started) {
+            counter.current.start(10)
+        }
+        else {
+            counter.current.stop()
+        }
+    }, [started]);
 
     return (
         <div className="card-dir" >
@@ -31,6 +44,9 @@ export default function Card(props) {
                 </div>
             </div>
             <div className="card-timer">
+                <div className="timer" >
+                    <Countdown ref={counter} />
+                </div>
                 <div className={"progress " + (started ? 'progress-moved' : '')}>
                     <div className="progress-bar" >
                     </div>

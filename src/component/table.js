@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: 'transparent',
+        backgroundColor: '#131530',
         color: 'rgb(230, 230, 230)',
         fontWeight: 'bold',
         fontSize: 12,
@@ -47,14 +47,17 @@ const useStyles = makeStyles({
         borderCollapse: 'separate',
         borderSpacing: '0 5px'
     },
+    root: {
+        height: '100%',
+    }
 });
 
 export default function CustomizedTables({ header, body }) {
     const classes = useStyles();
     const keys = Object.keys(header);
     return (
-        <TableContainer  >
-            <Table className={classes.table} aria-label="customized table">
+        <TableContainer className={classes.root}  >
+            <Table className={classes.table} stickyHeader>
                 <TableHead>
                     <TableRow>
                         {keys.map((th, i) =>
