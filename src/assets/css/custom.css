@@ -345,6 +345,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height:45px;
 }
 .card-timer .timer{
     height:20px;

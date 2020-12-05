@@ -91,8 +91,8 @@ export default function Bet(props) {
                 <a className="bet-btn mini" onClick={mul} >
                     &#215; 2
                 </a>
-                <a className="bet-btn" >
-                    <ArrowUpwardIcon className="icon" onClick={max} /> Max
+                <a className="bet-btn" onClick={max} >
+                    <ArrowUpwardIcon className="icon" /> Max
                 </a>
             </div>
             <Button
