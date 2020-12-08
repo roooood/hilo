@@ -7,7 +7,7 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import IconButton from '@material-ui/core/IconButton';
-import Button from 'component/button';
+import Button from 'route/hilo/button';
 
 export default function Bet(props) {
     const { app: { game }, setSetting, setting: { minBet, changeBet, maxBet, balance, type, beted, started } } = useContext(storeContext);

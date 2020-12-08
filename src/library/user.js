@@ -21,7 +21,7 @@ export function userInfo() {
             post('auth', { ref, token })
                 .then(data => {
                     if (data?.result == 'ok') {
-                        resolve(data.data)
+                        resolve({ ...data.data, lang })
                     }
                     else {
                         reject('info-error')

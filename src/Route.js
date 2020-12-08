@@ -3,9 +3,11 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import storeContext from 'reducer/context';
 import { userInfo } from 'library/user';
 import { t } from 'locales';
-import Loader from 'component/loader';
+import Loader from 'route/hilo/hilo';
 import Loading from 'component/loading';
 import Game from 'library/game';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 export default function Routing() {
     const { setting, setSetting, setApp } = useContext(storeContext);
@@ -59,7 +61,14 @@ export default function Routing() {
                     }
                 </div>
                 :
-                <Loader />
+                <Router>
+                    <Route render={({ location }) =>
+                        <Switch location={location}>
+                            {/* <Route path='/' exact component={Dashboard} /> */}
+                            <Route path='/hilo' exact component={Loader} />
+                        </Switch>
+                    } />
+                </Router>
             }
         </div>
     )

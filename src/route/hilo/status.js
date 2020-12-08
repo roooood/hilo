@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { t } from 'locales';
-import Button from 'component/button';
+import Button from 'route/hilo/button';
 import storeContext from 'reducer/context';
 
 export default function Status(props) {

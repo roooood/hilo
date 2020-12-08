@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect, useContext } from 'react';
+import storeContext from 'reducer/context';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { withStyles } from '@material-ui/core/styles';
@@ -25,6 +25,8 @@ const StyledSnackbar = withStyles(theme => ({
 }))(Snackbar);
 
 export default function Notify(props) {
+    const { app: { game } } = useContext(storeContext);
+
     const [open, setOpen] = useState(false);
     const [type, setType] = useState('success');
     const [msg, setMsg] = useState('hi');

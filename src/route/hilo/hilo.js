@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { t } from 'locales';
 
-import Bet from 'component/bet';
-import Status from 'component/status';
-import Card from 'component/card';
-import History from 'component/history';
-import Live from 'component/live';
+import Bet from 'route/hilo/bet';
+import Status from 'route/hilo/status';
+import Card from 'route/hilo/card';
+import History from 'route/hilo/history';
+import Live from 'route/hilo/live';
+import Tabs from 'route/hilo/tabs';
+import User from 'route/hilo/user';
 import Chat from 'component/chat';
-import Tabs from 'component/tabs';
-import User from 'component/user';
 
 
 export default function Loader(props) {
