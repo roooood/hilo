@@ -21,7 +21,9 @@ export default function Button({ type, children, color, onClick, disable }) {
                             <div className="diff-arrow x"></div>
                         </div>,
                     'equal':
-                        <div className={"burger pulse" + (disable ? ' disable' : '')} onClick={click}></div>,
+                        <div className={"burger pulse" + (disable ? ' disable' : '')} onClick={click}>
+                            {children}
+                        </div>,
                     'btn':
                         <button className={"btn pulse " + (color ?? '') + (disable ? ' disable' : '')} onClick={click}>{children}</button>,
                 }[type]

@@ -58,7 +58,8 @@ export default function Routing() {
                         : <Loading />
                     }
                 </div>
-                : <Loader />
+                :
+                <Loader />
             }
         </div>
     )
