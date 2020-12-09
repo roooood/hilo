@@ -21,6 +21,7 @@ export function userInfo() {
             post('auth', { ref, token })
                 .then(data => {
                     if (data?.result == 'ok') {
+                        lang = lang ? lang : data.data.lang;
                         resolve({ ...data.data, lang })
                     }
                     else {

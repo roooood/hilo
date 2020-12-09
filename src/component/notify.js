@@ -3,17 +3,18 @@ import storeContext from 'reducer/context';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { withStyles } from '@material-ui/core/styles';
+import { t } from 'locales';
 
 const StyledAlert = withStyles(theme => ({
     action: {
-        marginRight: 'auto',
-        marginLeft: '-8px',
-        paddingRight: '16px',
-        paddingLeft: '0',
+        marginRight: '-8px',
+        marginLeft: 'auto',
+        paddingLeft: '16px',
+        paddingRight: '0',
     },
     icon: {
-        marginRight: '-8px',
-        marginLeft: '12px',
+        marginLeft: '-8px',
+        marginRight: '12px',
     },
     message: {
         fontSize: '.7rem'
@@ -38,7 +39,7 @@ export default function Notify(props) {
     const notify = (msg) => {
         for (let type in msg) {
             setType(type);
-            setMsg(msg[type]);
+            setMsg(t(msg[type]));
         }
         setOpen(true);
     }

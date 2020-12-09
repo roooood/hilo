@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 // import LanguageDetector from 'i18next-browser-languagedetector';
 import en from './en.js';
+import fa from './fa.js';
 
 i18n
     // .use(LanguageDetector)
@@ -9,6 +10,9 @@ i18n
         resources: {
             en: {
                 translations: en
+            },
+            fa: {
+                translations: fa
             }
         },
         fallbackLng: 'en',

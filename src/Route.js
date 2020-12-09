@@ -2,9 +2,10 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import storeContext from 'reducer/context';
 import { userInfo } from 'library/user';
-import { t } from 'locales';
+import i18n, { t } from 'locales';
 import Loader from 'route/hilo/hilo';
 import Loading from 'component/loading';
+import Notify from 'component/notify';
 import Game from 'library/game';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -19,8 +20,8 @@ export default function Routing() {
         setSetting(state)
     })
 
-    const connect = (token) => {
-        let game = new Game('hilo');
+    const connect = (token, env) => {
+        let game = new Game(env);
         setApp({ game });
         game.connect().then(() => {
             game.create({ token }).then(() => {
@@ -38,7 +39,9 @@ export default function Routing() {
     useEffect(() => {
         userInfo()
             .then(data => {
-                connect(data.token);
+                let env = window.location.pathname.split('/')[1];
+                connect(data.token, env);
+                i18n.changeLanguage(data.lang);
                 setSetting(data);
             })
             .catch(e => {
@@ -62,6 +65,7 @@ export default function Routing() {
                 </div>
                 :
                 <Router>
+                    <Notify />
                     <Route render={({ location }) =>
                         <Switch location={location}>
                             {/* <Route path='/' exact component={Dashboard} /> */}

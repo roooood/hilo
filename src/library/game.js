@@ -53,7 +53,7 @@ class Game {
     }
     create(option) {
         return new Promise((resolve, reject) => {
-            this.Client.create(this.type, option).then(room => {
+            this.Client.joinOrCreate(this.type, option).then(room => {
                 this.Room = room;
                 this.addListner();
                 resolve();

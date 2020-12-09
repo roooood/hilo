@@ -4,7 +4,7 @@ import storeContext from 'reducer/context';
 import Countdown from 'component/countdown';
 import './chat.css';
 
-export default function History(props) {
+export default function Chat(props) {
     const { app: { game }, setting: { message, id } } = useContext(storeContext);
     const counter = useRef(null);
     const scroll = useRef(null);

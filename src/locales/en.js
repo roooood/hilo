@@ -1,11 +1,10 @@
 export default {
     "bet": 'Bet',
-    "joker": 'Joker',
     "red": 'Red',
     "black": 'Black',
     "bet-type": "Bet Type",
     "amount": "Amount",
-    "win": "Win",
+    "win": "Status",
     "live": 'Bet Slip',
     "my-bet": 'My Bet',
     "chat": 'Chat',
@@ -16,5 +15,6 @@ export default {
     "info-error": "Wrong User Information",
     "auth-error": "user Is Not Valid",
     "user-error": "User Not Found",
+    "balance-error": "Your Balance Less Then Your Betting Amount",
     "customer-error": "Refrence Not Found",
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { t } from 'locales';
+import 'assets/css/hilo.css';
 
 import Bet from 'route/hilo/bet';
 import Status from 'route/hilo/status';
