@@ -4,6 +4,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { withStyles } from '@material-ui/core/styles';
 import { t } from 'locales';
+import play from 'library/sound';
 
 const StyledAlert = withStyles(theme => ({
     action: {
@@ -38,8 +39,10 @@ export default function Notify(props) {
 
     const notify = (msg) => {
         for (let type in msg) {
+            play(type == 'success' ? 'win' : 'lose')
             setType(type);
-            setMsg(t(msg[type]));
+            let tmp = Array.isArray(msg[type]) ? msg[type].map(e => t(e)).join('') : t(msg[type])
+            setMsg(tmp);
         }
         setOpen(true);
     }
@@ -52,13 +55,11 @@ export default function Notify(props) {
     }
 
     return (
-        <Snackbar open={open} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} onClose={handleClose}>
+        <StyledSnackbar open={open} autoHideDuration={6000} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} onClose={handleClose}>
             <StyledAlert elevation={6} variant="filled" onClose={handleClose} severity={type} >
-                {msg.split('.').map((item, i) => {
-                    return <div key={i}>{item}</div>;
-                })}
+                {msg}
             </StyledAlert>
-        </Snackbar>
+        </StyledSnackbar>
 
     )
 };

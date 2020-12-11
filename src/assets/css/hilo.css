@@ -9,7 +9,10 @@ body {
 * {
     font-family: IRANSemi !important;
 }
-
+.mobile{
+    height:100%;
+    width: 95vw;
+}
 .flex {
     display: flex;
 }
@@ -32,7 +35,13 @@ body {
 .mb {
     margin-bottom: 10px;
 }
+.mobile .mb {
+    margin-bottom: 4px;
+}
 
+.mobile .ml {
+    margin-left: 4px;
+}
 .ml {
     margin-left: 10px;
 }
@@ -66,15 +75,30 @@ body {
 .container>.right {
     flex: .26;
 }
+.mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile>.top{
+    flex: .27;
+}
+.mobile>.middle{
+    flex: .42;
+}
+.mobile>.bottom{
+    flex: .31;
+}
+
+
 
 .arrow {
     position: relative;
-    width: 15em;
-    height: 8em;
     display: flex;
     justify-content: center;
     cursor: pointer;
 }
+
 .arrow span{
     position: absolute;
     bottom: -35px;
@@ -84,11 +108,18 @@ body {
     right: 0;
     text-align: center;
 }
+.mobile .arrow span{
+    bottom: -25px;
+}
 .btn-text {
     color: #fff;
     font-weight: bold;
     font-size: 2em;
     text-shadow: 0 0 3px #333;
+}
+.mobile .btn-text {
+    font-weight: normal;
+    font-size: 1.4em;
 }
 
 .btn-text.bold {
@@ -100,12 +131,20 @@ body {
     top: 40%;
     z-index: 9;
 }
-
+.mobile .arrow-text {
+    top: 30%;
+}
 .arrow-text.x {
     top: 30%;
 }
+.mobile .arrow-text.x {
+    top: 20%;
+}
 .arrow.x span{
     bottom: -50px;
+}
+.mobile .arrow.x span{
+    bottom: -30px;
 }
 .diff-arrow {
     position: relative;
@@ -116,13 +155,18 @@ body {
     margin-top: -5px;
     box-shadow: 7px -5px 1px #7f47fd;
 }
-
+.mobile .diff-arrow{
+    width: 5em;
+    height: 6em;  
+}
 .diff-arrow.x {
     margin-top: 5px;
     background: #f96800;
     box-shadow: 7px -5px 1px #fca700;
 }
-
+.mobile .diff-arrow.x {
+    margin-top: -10px;
+}
 .diff-arrow:before,
 .diff-arrow:after {
     content: '';
@@ -131,6 +175,11 @@ body {
     width: 8em;
     height: 8em;
     border-top-right-radius: 15%;
+}
+.mobile .diff-arrow:before,
+.mobile .diff-arrow:after {
+    width: 5em;
+    height: 5em;
 }
 
 .diff-arrow {
@@ -175,12 +224,19 @@ body {
     -webkit-transition-timing-function: cubic-bezier(0.61, 0.04, 0.17, 1.32);
     transition-timing-function: cubic-bezier(0.61, 0.04, 0.17, 1.32);
 }
+.mobile .burger {
+    height: 1.5em;
+    margin-top:-10px;
+}
 .burger span{
     position: absolute;
     bottom: -30px;
     left: 0;
     right: 0;
     text-align: center;
+}
+.mobile .burger span{
+    bottom: -25px;
 }
 .burger::after,
 .burger::before {
@@ -215,6 +271,10 @@ body {
     justify-content: space-between;
     flex-direction: column;
 }
+.mobile .btn-actions {
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
 
 .bet-dir {
     display: flex;
@@ -238,6 +298,7 @@ body {
     color: rgb(230, 230, 230);
     font-weight: bold;
     text-align: center;
+    width:60%;
 }
 
 .bet-input .icon {
@@ -286,7 +347,10 @@ body {
     border: 1px solid #21233b;
     box-shadow: 1px 2px 2px 0px #0000003d;
 }
-
+.mobile .btn{
+    flex: 0 0 48%;
+    margin: 1%;
+}
 .btn:hover {
     border: 1px solid #21233b;
     box-shadow: 1px 2px 2px 0px #0000003d;
@@ -344,7 +408,7 @@ body {
 .card-dir {
     display: flex;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
@@ -355,22 +419,42 @@ body {
     align-items: center;
     flex-wrap: wrap;
     height: 5em;
-    overflow: hidden
+    overflow: hidden;
+    margin:10px auto 5px;
 }
 
+.xcard{
+    display: flex;
+    flex: 1 1;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+}
+.mobile .xcard{
+    flex-direction: row;
+    align-items: flex-end;
+}
+.card-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .card-timer {
-    width: 70%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     height:60px;
+    margin:0 20px;
+}
+.mobile .card-timer {
+    width: 50%;
 }
 .card-timer .timer{
-    height:30px;
-    font-size: 2em;
+    height:40px;
+    font-size: 3em;
     background: rgba(0, 0, 0, 0.25);
-    width: 50px;
+    width: 70px;
     text-align: center;
     border-radius: 50px 50px 0 0;
     padding: 5px;
@@ -439,6 +523,16 @@ body {
 .card.mini {
     width: 3.6em;
     height: 5em;
+    margin-bottom: 15px;
+}
+.mobile .card.big {
+    width: 5.7em;
+    height: 8em;
+}
+
+.mobile .card.mini {
+    width: 3em;
+    height: 4em;
 }
 
 .card div {
@@ -515,7 +609,7 @@ body {
 }
 
 .progress-bar {
-    height: 18px;
+    height: 14px;
     border-radius: 30px;
     background: rgba(165, 165, 165, 0.1);
     transition: 0.4s ease;

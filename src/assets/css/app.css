@@ -12,7 +12,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -57,8 +56,19 @@ body {
   flex: 1;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loading img{
+  width: 40px;
+  position: absolute;
+}
 .lds-roller {
   display: inline-block;
   position: relative;

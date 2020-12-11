@@ -8,6 +8,7 @@ import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import IconButton from '@material-ui/core/IconButton';
 import Button from 'route/hilo/button';
+import play from 'library/sound';
 
 export default function Bet(props) {
     const { app: { game }, setSetting, setting: { minBet, changeBet, maxBet, balance, type, beted, started } } = useContext(storeContext);
@@ -25,6 +26,7 @@ export default function Bet(props) {
     }, [started]);
 
     const _beted = (xtype) => {
+        play('betting')
         setSetting({ beted: xtype })
     }
     const setBeting = () => {

@@ -11,7 +11,7 @@ function reducer(state, xcard) {
 }
 
 export default function Card(props) {
-    const { setting: { started, card, games } } = useContext(storeContext);
+    const { setting: { started, card, games, mobile } } = useContext(storeContext);
     const [state, dispatch] = useReducer(reducer, initialState);
     const counter = useRef(null);
 
@@ -37,18 +37,20 @@ export default function Card(props) {
                     <div key={game.id} className={"card mini _" + game.card} />
                 )}
             </div>
-            <div className="card-status">
-                <div className={"card big " + (state.flip ? 'flipped' : '')}>
-                    <div className={"card  _" + state.card[0]} />
-                    <div className={"card back _" + state.card[1]} />
+            <div className={'xcard'}>
+                <div className="card-status">
+                    <div className={"card big " + (state.flip ? 'flipped' : '')}>
+                        <div className={"card  _" + state.card[0]} />
+                        <div className={"card back _" + state.card[1]} />
+                    </div>
                 </div>
-            </div>
-            <div className="card-timer">
-                <div className="timer" >
-                    <Countdown ref={counter} />
-                </div>
-                <div className={"progress " + (started ? 'progress-moved' : '')}>
-                    <div className="progress-bar" >
+                <div className="card-timer">
+                    <div className="timer" >
+                        <Countdown ref={counter} />
+                    </div>
+                    <div className={"progress " + (started ? 'progress-moved' : '')}>
+                        <div className="progress-bar" >
+                        </div>
                     </div>
                 </div>
             </div>

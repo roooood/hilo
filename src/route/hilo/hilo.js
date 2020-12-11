@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import storeContext from 'reducer/context';
+import SwipeableViews from 'react-swipeable-views';
+
 import { t } from 'locales';
 import 'assets/css/hilo.css';
 
@@ -13,7 +16,38 @@ import Chat from 'component/chat';
 
 
 export default function Loader(props) {
-
+    const { setting: { mobile } } = useContext(storeContext);
+    if (mobile) {
+        return (
+            <SwipeableViews
+                style={{ height: '100%' }}
+                containerStyle={{ height: '100%' }}
+            >
+                <div className="mobile">
+                    <div className="top bg mb" >
+                        <Card />
+                    </div>
+                    <div className="middle mb" >
+                        <Status />
+                    </div>
+                    <div className="bottom bg" >
+                        <Bet />
+                    </div>
+                </div>
+                <div className="mobile col" >
+                    <div className="mb bg" style={{ flex: .1 }}>
+                        <User />
+                    </div>
+                    <div className="bg" style={{ flex: .9 }}>
+                        <Tabs
+                            header={[t('live'), t('my-bet'), t('chat')]}
+                            body={[<Live />, <History />, <Chat />]}
+                        />
+                    </div>
+                </div>
+            </SwipeableViews>
+        )
+    }
     return (
         <>
             <div className="left bg" >

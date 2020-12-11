@@ -4,7 +4,7 @@ import Button from 'route/hilo/button';
 import storeContext from 'reducer/context';
 
 export default function Status(props) {
-    const { setting: { ratio, type, started, beted }, setSetting } = useContext(storeContext);
+    const { setting: { ratio, type, started, beted, mobile }, setSetting } = useContext(storeContext);
     useEffect(() => {
         if (!started) {
             setSetting({ type: false })
@@ -17,8 +17,8 @@ export default function Status(props) {
     }
     return (
         <div className="status-dir" >
-            <div className="bg btn-actions" style={{ flex: .45 }}>
-                <Button disable={type ? type != 'a' : !started} type='btn' color="blue" onClick={() => setType('a')}>
+            <div className="bg btn-actions" style={{ flex: mobile ? .65 : .45 }}>
+                <Button disable={type ? type != 'a' : !started} type='btn' color="blue f-1" onClick={() => setType('a')}>
                     A
                     <span>{ratio?.['a']}X</span>
                 </Button>
@@ -47,8 +47,8 @@ export default function Status(props) {
                     <span>{ratio?.['jq']}X</span>
                 </Button>
             </div>
-            <div className="ml flex col" style={{ flex: .55 }}>
-                <div className="mb bg center col" style={{ flex: .35 }}>
+            <div className="ml flex col" style={{ flex: mobile ? .35 : .55 }}>
+                <div className="mb bg center col justify-center" style={{ flex: .35 }}>
                     <Button disable={(type || ratio?.['hi'] == 0) ? type != 'hi' : !started} type="up" onClick={() => ratio?.['hi'] == 0 ? null : setType('hi')}>
                         Hi
                     <span>{ratio?.['hi']}x</span>
@@ -59,7 +59,7 @@ export default function Status(props) {
                         <span>{ratio?.['=']}x</span>
                     </Button>
                 </div>
-                <div className="bg center col" style={{ flex: .35 }}>
+                <div className="bg center col justify-center" style={{ flex: .35 }}>
                     <Button disable={(type || ratio?.['lo'] == 0) ? type != 'lo' : !started} type="down" onClick={() => ratio?.['lo'] == 0 ? null : setType('lo')} >
                         Lo
                      <span>{ratio?.['lo']}x</span>

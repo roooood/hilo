@@ -17,7 +17,12 @@ export default function Button({ header, body }) {
                 )}
                 <span className={"glider active-" + (1 + index)}></span>
             </div>
-            <SwipeableViews style={{ height: '90%' }} containerStyle={{ height: '100%' }} enableMouseEvents index={index} onChangeIndex={(e, i) => setIndex(i)}>
+            <SwipeableViews
+                style={{ height: '90%' }}
+                containerStyle={{ height: '100%' }}
+                onSwitching={(i) => setIndex(i)}
+                index={index}
+            >
                 {body.map((item, i) =>
                     <div key={i} style={{ height: '100%' }}>{item}</div>
                 )}

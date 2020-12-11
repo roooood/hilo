@@ -9,6 +9,8 @@ export default {
     "my-bet": 'My Bet',
     "chat": 'Chat',
     "player": 'Player',
+    "user-win": "You Win , ",
+    "user-lose": "You lose",
 
     "error": "Error",
     "net-error": "Connection Error",
