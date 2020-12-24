@@ -26,7 +26,7 @@
 .msg-bubble {
   padding: 5px;
   border-radius: 15px;
-  background: rgba(249, 177, 177, 0.21);
+  background: rgba(174, 171, 160, 0.18);
   display: flex;
   flex-direction: row;
 }
@@ -34,13 +34,12 @@
   word-break: break-all;
 }
 .msg-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 .msg-info-name {
   margin-right: 10px;
   font-weight: bold;
+  font-size: 1.1em;
+  color:#f09e24;
 }
 .msg-info-time {
   font-size: 0.85em;
@@ -54,7 +53,6 @@
   flex-direction: row-reverse;
 }
 .right-msg .msg-bubble {
-  background: rgba(119, 225, 71, 0.23);
   color: #fff;
   border-bottom-right-radius: 0;
 }
@@ -66,28 +64,56 @@
   display: flex;
   background: rgba(51, 51, 51, 0.555);
   border-radius: 10px;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.msger-inputarea >div{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  flex:1;
 }
 .msger-inputarea * {
   border: none;
   font-size: 1em;
   position: relative;
+  outline: 0;
 }
 .msger-input {
-  flex: .9;
+  flex: 1;
   background: transparent;
   color: #fff;
   padding: 10px;
 }
 .msger-send-btn {
-  flex: .1;
-  padding: 4px;
   cursor: pointer;
-  width:50px;
-  font-size: 1.2em;
-  color:#fff;
+  width:30px;
+  height:100%;
+  position: relative;
+  padding:5px;
+  color: #fff;
 }
-.msger-send-btn svg{
+.msger-send-btn .send-icon{
+  display: block;
+  background: #fff;
+  background: linear-gradient(to bottom, #fff, #f0f0f0);
+  position: absolute;
+  top: 25%;
+  height: 55%;
+  width: 100%;
+  -webkit-clip-path: polygon(10% 0%, 90% 50%, 10% 100%, 20% 55%, 50% 50%, 20% 45%);
+  -moz-clip-path: polygon(10% 0%, 90% 50%, 10% 100%, 20% 55%, 50% 50%, 20% 45%);
+  clip-path: polygon(10% 0%, 90% 50%, 10% 100%, 20% 55%, 50% 50%, 20% 45%);
+  background: rgb(180, 180, 180);
+  right: 5%;
+}
+.msger-send-btn .send-icon:hover{
+  background:rgb(250, 250, 250);
+}
+.msger-inputarea svg{
   fill: rgb(180, 180, 180);
 }
 .msger-send-btn:hover svg{

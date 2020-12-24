@@ -1,26 +1,4 @@
-/*
-    const getHi = (message => {
-        console.log('message', message)
-    })
-    const getState = (state => {
-        console.log('state', state)
-    })
-    useEffect(() => {
-        let game = new Game('demo');
-        game.add('hi', getHi);
-        game.connect().then(() => {
-            game.create({ ok: 'ok' }).then(() => {
-                game.onState(getState);
-                game.send('move', 'left');
-                game.getRooms(rooms => {
-                    console.log('rooms', rooms)
-                })
-            })
-        }).catch(e => {
-            console.log('error :', e)
-        });
-    }, []);
-*/
+
 
 import * as Colyseus from "colyseus.js";
 import { serverUrl } from 'library/request';
@@ -51,9 +29,26 @@ class Game {
             });
         });
     }
+    joinChannel(data) {
+        return new Promise((resolve, reject) => {
+            this.Client.getAvailableRooms(this.type).then(rooms => {
+                let found = rooms.some(e => e.roomId == data.channel);
+                if (found) {
+                    this.join(data.channel, data)
+                        .then(resolve)
+                }
+                else {
+                    this.create(data)
+                        .then(resolve)
+                }
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
     create(option) {
         return new Promise((resolve, reject) => {
-            this.Client.joinOrCreate(this.type, option).then(room => {
+            this.Client.create(this.type, option).then(room => {
                 this.Room = room;
                 this.addListner();
                 resolve();
@@ -65,9 +60,9 @@ class Game {
     }
     join(roomId, option) {
         return new Promise((resolve, reject) => {
-            this.Client.join(roomId, option).then(room => {
-                this.addListner();
+            this.Client.joinById(roomId, option).then(room => {
                 this.Room = room;
+                this.addListner();
                 resolve();
             }).catch(e => {
                 console.error("join error", e);
@@ -86,8 +81,11 @@ class Game {
             this.Client.getAvailableRooms(this.type).then(rooms => {
                 callback(rooms);
             }).catch(e => {
-
+                callback(e);
             });
+        }
+        else {
+            callback(false);
         }
     }
     onState(callback) {

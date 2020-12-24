@@ -20,11 +20,11 @@ export default function Routing() {
         setSetting(state)
     })
 
-    const connect = (token, env) => {
+    const connect = (data, env) => {
         let game = new Game(env);
         setApp({ game });
         game.connect().then(() => {
-            game.create({ token }).then(() => {
+            game.joinChannel(data).then(() => {
                 game.onState(getState);
                 game.add('setting', getState);
                 setLoading(false);
@@ -40,7 +40,7 @@ export default function Routing() {
         userInfo()
             .then(data => {
                 let env = window.location.pathname.split('/')[1];
-                connect(data.token, env);
+                connect({ token: data.token, channel: data.ref }, env);
                 i18n.changeLanguage(data.lang);
                 setSetting(data);
             })
